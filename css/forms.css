@@ -1,0 +1,82 @@
+/* Core Structural and Variables Extension */
+:root {
+    --primary-color: #0F4C81;
+    --secondary-color: #2563EB;
+    --bg-color: #F8FAFC;
+    --card-bg: rgba(255, 255, 255, 0.9);
+    --border-radius-custom: 12px;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+}
+
+/* Authentication Page Styles */
+.auth-bg {
+    background: radial-gradient(circle at 10% 20%, rgba(15, 76, 129, 0.15) 0%, rgba(37, 99, 235, 0.05) 90.2%);
+    position: relative;
+}
+
+.auth-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.6) !important;
+    border-radius: var(--border-radius-custom);
+}
+
+/* Color Classes Overrides */
+.text-primary-custom {
+    color: var(--primary-color);
+}
+
+.text-secondary-custom {
+    color: var(--secondary-color);
+}
+
+.btn-primary-custom {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: #ffffff;
+    border-radius: 8px;
+    transition: all 0.25s ease-in-out;
+}
+
+.btn-primary-custom:hover, .btn-primary-custom:focus {
+    background-color: #0b3961;
+    border-color: #0b3961;
+    color: #ffffff;
+    transform: translateY(-1px);
+}
+
+/* Form Input Styling */
+.form-control {
+    border-radius: 8px;
+    padding: 0.6rem 0.75rem;
+    font-size: 0.95rem;
+    border: 1px solid #CBD5E1;
+}
+
+.form-control:focus {
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+.input-group-text {
+    border: 1px solid #CBD5E1;
+    border-radius: 8px;
+}
+
+#togglePassword {
+    cursor: pointer;
+    border-left: none;
+}
+
+#togglePassword:hover {
+    color: var(--primary-color) !important;
+}
+
+.transition-all {
+    transition: all 0.25s ease-in-out;
+}

@@ -1,0 +1,135 @@
+/* Core Functional Variable Definitions */
+:root {
+    --primary-color: #0F4C81;
+    --secondary-color: #2563EB;
+    --success-color: #16A34A;
+    --warning-color: #F59E0B;
+    --danger-color: #DC2626;
+    --bg-color: #F8FAFC;
+    --sidebar-width: 260px;
+    --border-radius-custom: 12px;
+}
+
+body {
+    background-color: var(--bg-color);
+    overflow-x: hidden;
+}
+
+/* Master Grid Structure Base Wrappers */
+.wrapper {
+    display: flex;
+    width: 100%;
+    align-items: stretch;
+}
+
+/* Sidebar Implementation System Layout */
+#sidebar {
+    min-width: var(--sidebar-width);
+    max-width: var(--sidebar-width);
+    background: #092C4B; /* Deep Variant of Primary Theme Color for strong content isolation */
+    color: #fff;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    min-height: 100vh;
+    z-index: 999;
+}
+
+#sidebar.active {
+    margin-left: 0;
+}
+
+#sidebar .sidebar-header {
+    background: #061E33;
+}
+
+#sidebar ul.components {
+    padding: 20px 0;
+}
+
+#sidebar ul li a {
+    color: #A3AED0;
+    display: block;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+#sidebar ul li a:hover, #sidebar ul li.active > a {
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+#sidebar ul li a i {
+    width: 24px;
+    text-align: center;
+}
+
+/* Header Navbar Overrides */
+.avatar {
+    width: 32px;
+    height: 32px;
+    font-size: 0.85rem;
+    line-height: 32px;
+}
+
+.global-search input {
+    border-radius: 20px;
+    width: 280px;
+}
+
+/* Functional Dashboard Blocks Elements */
+.metric-card {
+    border-radius: var(--border-radius-custom);
+    background: #ffffff;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.metric-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05) !important;
+}
+
+.workspace-card {
+    border-radius: var(--border-radius-custom);
+    background: #ffffff;
+}
+
+/* Custom Soft Status Palette Context Badges */
+.bg-primary-light { background-color: rgba(15, 76, 129, 0.1); }
+.bg-secondary-light { background-color: rgba(37, 99, 235, 0.1); }
+.bg-success-light { background-color: rgba(22, 163, 74, 0.1); }
+.bg-warning-light { background-color: rgba(245, 158, 11, 0.1); }
+.bg-danger-light { background-color: rgba(220, 38, 38, 0.1); }
+
+.text-success-custom { color: var(--success-color); }
+.text-warning-custom { color: var(--warning-color); }
+.text-danger-custom { color: var(--danger-color); }
+.text-slate { color: #1E293B; }
+
+/* Custom Helper Sizing Utilities */
+.width-20 { width: 20px; }
+.width-120 { width: 120px; }
+.tracking-wide { letter-spacing: 0.05em; }
+.tracking-wider { letter-spacing: 0.07em; }
+.font-sm-custom { font-size: 0.875rem; }
+.line-height-1 { line-height: 1; }
+
+.chart-canvas-wrapper {
+    border-style: dashed !important;
+    border-width: 2px !important;
+    border-color: #CBD5E1 !important;
+}
+
+/* Media Breakpoint Query Matrices Execution Layer */
+@media (max-width: 768px) {
+    #sidebar {
+        margin-left: calc(-1 * var(--sidebar-width));
+        position: fixed;
+    }
+    #sidebar.active {
+        margin-left: 0;
+    }
+    #content {
+        width: 100% !important;
+    }
+}
