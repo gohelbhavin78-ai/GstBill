@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BI Audits & Reporting | BG Invoice Pro</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css"><link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div id="content" class="w-100">
+            <div class="container-fluid p-4">
+                <h4 class="fw-bold text-dark mb-4">Strategic Business Intelligence Core Metrics</h4>
+                
+                <div class="row g-4 mb-4">
+                    <div class="col-xl-8">
+                        <div class="card workspace-card border-0 shadow-sm p-4">
+                            <h5 class="fw-bold mb-3">Revenue Aggregation Curve Flow</h5>
+                            <canvas id="revenueAnalyticsChart" style="max-height: 320px;"></canvas>
+                        </div>
+                    </div>
+                    <div class="col-xl-4">
+                        <div class="card workspace-card border-0 shadow-sm p-4">
+                            <h5 class="fw-bold mb-3">GST Liability Allocation distribution</h5>
+                            <canvas id="gstDistributionChart" style="max-height: 320px;"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ChartJS External Dependency Engine Mapping -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/report.js"></script>
+</body>
+</html>

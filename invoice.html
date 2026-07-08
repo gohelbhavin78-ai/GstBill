@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoicing Workspace Engine | BG Invoice Pro</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css"><link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div id="content" class="w-100">
+            <div class="container-fluid p-4">
+                <div class="card workspace-card border-0 shadow p-4">
+                    <h4 class="fw-bold text-dark mb-4"><i class="fa-solid fa-file-signature text-primary-custom me-2"></i>GST Consolidated Transaction Dispatch Desk</h4>
+                    
+                    <div class="row g-3 mb-4">
+                        <div class="col-md-3">
+                            <label class="form-label small fw-semibold">Invoice Serial Reference</label>
+                            <input type="text" class="form-control" id="invNum" readonly>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label small fw-semibold">Billing Date Target</label>
+                            <input type="date" class="form-control" id="invDate" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label small fw-semibold">Target Client Account Profile</label>
+                            <select class="form-select" id="invCustomer" onchange="InvoiceModule.handleCustomerChange()"></select>
+                        </div>
+                    </div>
+
+                    <!-- Line Item Grid -->
+                    <h6 class="fw-bold text-secondary mb-3">Itemized Item Lines Segment Matrix</h6>
+                    <div class="table-responsive">
+                        <table class="table table-bordered align-middle" id="invoiceItemsTable">
+                            <thead class="table-light">
+                                <tr>
+                                    <th style="width: 40%;">Particular Description Specification</th>
+                                    <th style="width: 12%;">Qty</th>
+                                    <th style="width: 15%;">Unit Value Base Rate (₹)</th>
+                                    <th style="width: 10%;">Disc %</th>
+                                    <th style="width: 10%;">GST %</th>
+                                    <th style="width: 13%;" class="text-end">Final Net Aggregate</th>
+                                    <th style="width: 5%;">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="invoiceItemRows"></tbody>
+                        </table>
+                    </div>
+                    <button class="btn btn-sm btn-outline-primary mb-4" onclick="InvoiceModule.addNewRow()"><i class="fa-solid fa-plus me-1"></i>Insert Line Row</button>
+
+                    <!-- Financial Summary -->
+                    <div class="row justify-content-end">
+                        <div class="col-md-5">
+                            <div class="card bg-light border-0 p-3 rounded-3 font-sm-custom">
+                                <div class="d-flex justify-content-between mb-2"><span>Total Base Taxable Yield:</span><span id="lblTaxable" class="fw-bold">₹0.00</span></div>
+                                <div class="d-flex justify-content-between mb-2"><span>Central CGST Accrual Value:</span><span id="lblCgst" class="fw-bold">₹0.00</span></div>
+                                <div class="d-flex justify-content-between mb-2"><span>State SGST Accrual Value:</span><span id="lblSgst" class="fw-bold">₹0.00</span></div>
+                                <div class="d-flex justify-content-between mb-2"><span>Integrated IGST Yield:</span><span id="lblIgst" class="fw-bold">₹0.00</span></div>
+                                <hr>
+                                <div class="d-flex justify-content-between text-dark h5 mb-0"><span>Grand Total Payable:</span><span id="lblGrandTotal" class="fw-bold text-primary-custom">₹0.00</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-4 pt-3 border-top d-flex gap-2 justify-content-end">
+                        <button class="btn btn-light border" onclick="window.location.reload()">Reset Document</button>
+                        <button class="btn btn-primary-custom px-4" onclick="InvoiceModule.commitInvoice()"><i class="fa-solid fa-floppy-disk me-2"></i>Save & Print Document</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="js/gst.js"></script>
+    <script src="js/invoice.js"></script>
+</body>
+</html>

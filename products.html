@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock & Ledger Inventory | BG Invoice Pro</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css"><link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div id="content" class="w-100">
+            <div class="container-fluid p-4">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <div>
+                        <h4 class="fw-bold text-dark mb-1">Product Inventory Ledger</h4>
+                        <p class="text-muted small mb-0">Maintain stock catalog listings, structural custom parameter parameters.</p>
+                    </div>
+                    <button class="btn btn-primary-custom" data-bs-toggle="modal" data-bs-target="#productModal" onclick="ProductModule.resetForm()">
+                        <i class="fa-solid fa-plus me-2"></i>Add Asset Item
+                    </button>
+                </div>
+
+                <div class="card workspace-card border-0 shadow-sm p-4">
+                    <div class="mb-3 col-md-4">
+                        <input type="text" id="searchProduct" class="form-control" placeholder="Search catalog items...">
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-hover align-middle mb-0">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>Item Code</th>
+                                    <th>Item Catalog Label Description</th>
+                                    <th>HSN / SAC Mapping</th>
+                                    <th>Measurement Unit</th>
+                                    <th>GST % Slabs</th>
+                                    <th>Base Rate Price</th>
+                                    <th class="text-end">Modifications</th>
+                                </tr>
+                            </thead>
+                            <tbody id="productTableBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product Configuration Window dialog markup modal block framework -->
+    <div class="modal fade" id="productModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content rounded-4 border-0 shadow">
+                <form id="productForm" class="needs-validation" novalidate>
+                    <div class="modal-header border-bottom">
+                        <h5 class="modal-title fw-bold" id="prodModalTitle">Add Product Asset</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <input type="hidden" id="productId">
+                        <div class="mb-3">
+                            <label class="form-label small fw-semibold">Product Name / Service Detail</label>
+                            <input type="text" class="form-control" id="prodName" required>
+                        </div>
+                        <div class="row g-2">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label small fw-semibold">HSN / SAC Code</label>
+                                <input type="text" class="form-control" id="prodHsn" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label small fw-semibold">Base Pricing Unit</label>
+                                <select class="form-select" id="prodUnit">
+                                    <option value="NOS">NOS (Numbers)</option>
+                                    <option value="SAC">SAC (Services Code)</option>
+                                    <option value="BOX">BOX</option>
+                                    <option value="KGS">KGS</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row g-2">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label small fw-semibold">GST Rate Slab (%)</label>
+                                <select class="form-select" id="prodGst">
+                                    <option value="0">0% (Exempt)</option>
+                                    <option value="5">5%</option>
+                                    <option value="12">12%</option>
+                                    <option value="18" selected>18% Standard</option>
+                                    <option value="28">28% Premium</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label small fw-semibold">Base Price Rate (₹)</label>
+                                <input type="number" step="0.01" class="form-control" id="prodPrice" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer border-top">
+                        <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary-custom">Commit Item</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/product.js"></script>
+</body>
+</html>

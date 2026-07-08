@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enterprise Parameters Control | BG Invoice Pro</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css"><link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div id="content" class="w-100">
+            <div class="container-fluid p-4">
+                <div class="card workspace-card border-0 shadow-sm p-4 col-lg-8">
+                    <h4 class="fw-bold text-dark mb-4"><i class="fa-solid fa-building-shield text-primary-custom me-2"></i>Legal Identity Corporate Context Profiles</h4>
+                    
+                    <form id="settingsForm">
+                        <div class="mb-3">
+                            <label class="form-label small fw-semibold">Company Registered Tradename Legal Identification</label>
+                            <input type="text" class="form-control" id="cfgName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label small fw-semibold">Corporate Main Headquarter GSTIN Profile ID</label>
+                            <input type="text" class="form-control" id="cfgGstin" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label small fw-semibold">Corporate Financial Direct Despatch Email Address</label>
+                            <input type="email" class="form-control" id="cfgEmail" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label small fw-semibold">Headquarters Building Postal Location</label>
+                            <textarea class="form-control" id="cfgAddress" rows="3" required></textarea>
+                        </div>
+                        <div class="mb-4">
+                            <label class="form-label small fw-semibold">Taxation Nexus State Origin Location</label>
+                            <input type="text" class="form-control" id="cfgState" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary-custom px-4"><i class="fa-solid fa-circle-check me-2"></i>Synchronize Profiles Settings</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/api.js"></script>
+    <script src="js/settings.js"></script>
+</body>
+</html>
