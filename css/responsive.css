@@ -1,0 +1,132 @@
+/* ==========================================================================
+   BG Invoice Pro - Responsive Layout Adaptations
+   ========================================================================== */
+
+/* --- Desktop Scaling Adjustments (Large viewports) --- */
+@media (max-width: 1200px) {
+    :root {
+        --sidebar-width: 240px;
+    }
+    
+    .main-content {
+        padding: calc(var(--navbar-height) + 1.5rem) 1.5rem 1.5rem 1.5rem;
+    }
+    
+    /* Collapse dense metrics grids */
+    .metrics-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 1rem;
+    }
+}
+
+/* --- Tablet / Split Screen Layout Breakpoints --- */
+@media (max-width: 992px) {
+    :root {
+        --sidebar-width: 0px; /* Force structural switch to absolute drawer overlay */
+    }
+
+    .main-content {
+        margin-left: 0 !important;
+        padding-top: calc(var(--navbar-height) + 1rem);
+    }
+
+    /* Target the primary application sidebar component */
+    .sidebar {
+        position: fixed;
+        left: calc(-1 * 260px); /* Fully structural hide offscreen */
+        width: 260px !important;
+        z-index: 1000;
+        transition: transform 0.3s ease;
+    }
+
+    /* Toggle visibility selector applied via dashboard.js */
+    .sidebar.active {
+        transform: translateX(260px);
+        box-shadow: 10px 0 30px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Unhide the structural mobile menu button trigger inside your navbar headers */
+    .mobile-nav-toggle {
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    /* Flex alignment corrections for row actions */
+    .page-header-actions {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        margin-top: 1rem;
+    }
+}
+
+/* --- Mobile Device Environments --- */
+@media (max-width: 768px) {
+    /* UI Typography Scaling */
+    h1 { font-size: 1.75rem; }
+    h2 { font-size: 1.5rem; }
+    
+    /* Flatten complex structural grids */
+    .metrics-grid, 
+    .form-grid, 
+    .dashboard-charts-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* Dynamic Billing Invoice Rows item stack translation */
+    .invoice-items-table thead {
+        display: none; /* Hide visual columns for mobile viewports */
+    }
+
+    .invoice-items-table tr {
+        display: block;
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid var(--border-color);
+        border-radius: var(--radius-md);
+        padding: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .invoice-items-table td {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.5rem 0 !important;
+        border: none !important;
+        text-align: right;
+        width: 100% !important;
+    }
+
+    /* Generate CSS injection for visual responsive attributes markup tags */
+    .invoice-items-table td::before {
+        content: attr(data-label);
+        font-weight: 600;
+        color: var(--text-secondary);
+        float: left;
+        text-align: left;
+    }
+    
+    /* Maximize functional real-estate inside systemic billing modal windows */
+    .modal-content {
+        width: 95% !important;
+        margin: 1rem auto;
+        padding: 1.25rem;
+    }
+}
+
+/* --- Extra Small/Compact Form Factors --- */
+@media (max-width: 480px) {
+    .btn {
+        width: 100%; /* Force structural call-to-actions stacked vertically */
+    }
+    
+    .card {
+        padding: 1rem;
+    }
+
+    .navbar-user-profile .user-name {
+        display: none; /* Hide contextual names to optimize space */
+    }
+}
