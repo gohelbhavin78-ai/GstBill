@@ -3,7 +3,7 @@
  * Intercepts CRUD requests and hooks them directly to Google Sheets Web App
  */
 
-const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzZiMGvf7nhujcXUz2Y8RKRKPRa-cuCUfTabNWpIEfKi8JyNkmGMOVXOkSeFF7NXaD2/exec";
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/library/d/13_7QCRwDoWvI7wzTkXr005_9rStMWoQ0LBDOQvVTiakjBhjDXKzJaZ8Y/2";
 
 const StorageEngine = {
     // Mapping model keys to respective Google Sheet collection structures
